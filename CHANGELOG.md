@@ -1,6 +1,6 @@
 
 <a name="v2.1.0"></a>
-## [v2.1.0](https://github.com/robinjoseph08/go-pg-migrations/compare/v2.0.0...v2.1.0) (2020-10-15)
+## [v2.1.0](https://github.com/haijianyang/go-pg-migrations/compare/v2.0.0...v2.1.0) (2020-10-15)
 
 ### Features
 
@@ -8,27 +8,27 @@
 
 
 <a name="v2.0.0"></a>
-## [v2.0.0](https://github.com/robinjoseph08/go-pg-migrations/compare/v1.1.0...v2.0.0) (2020-05-26)
+## [v2.0.0](https://github.com/haijianyang/go-pg-migrations/compare/v1.1.0...v2.0.0) (2020-05-26)
 
 ### Features
 
-* **redis:** update to go-redis/v7 and switch to redisqueue/v2 ([#11](https://github.com/robinjoseph08/go-pg-migrations/issues/11))
+* **redis:** update to go-redis/v7 and switch to redisqueue/v2 ([#11](https://github.com/haijianyang/go-pg-migrations/issues/11))
 
 
 <a name="v1.1.0"></a>
-## [v1.1.0](https://github.com/robinjoseph08/go-pg-migrations/compare/v1.0.1...v1.1.0) (2020-05-26)
+## [v1.1.0](https://github.com/haijianyang/go-pg-migrations/compare/v1.0.1...v1.1.0) (2020-05-26)
 
 ### Chore
 
-* **makefile:** update Makefile ([#10](https://github.com/robinjoseph08/go-pg-migrations/issues/10))
+* **makefile:** update Makefile ([#10](https://github.com/haijianyang/go-pg-migrations/issues/10))
 
 
 <a name="v1.0.1"></a>
-## [v1.0.1](https://github.com/robinjoseph08/go-pg-migrations/compare/v1.0.0...v1.0.1) (2019-08-03)
+## [v1.0.1](https://github.com/haijianyang/go-pg-migrations/compare/v1.0.0...v1.0.1) (2019-08-03)
 
 ### Bug Fixes
 
-* **reclaim:** increment ID when looping ([#4](https://github.com/robinjoseph08/go-pg-migrations/issues/4))
+* **reclaim:** increment ID when looping ([#4](https://github.com/haijianyang/go-pg-migrations/issues/4))
 
 
 <a name="v1.0.0"></a>
@@ -36,9 +36,9 @@
 
 ### Documentation
 
-* **README:** add version badge ([#3](https://github.com/robinjoseph08/go-pg-migrations/issues/3))
+* **README:** add version badge ([#3](https://github.com/haijianyang/go-pg-migrations/issues/3))
 
 ### Features
 
-* **base:** create first version of producer and consumer ([#2](https://github.com/robinjoseph08/go-pg-migrations/issues/2))
+* **base:** create first version of producer and consumer ([#2](https://github.com/haijianyang/go-pg-migrations/issues/2))
 

@@ -1,11 +1,11 @@
 # redisqueue
 
 ![Version](https://img.shields.io/badge/version-v2.1.0-green.svg)
-[![GoDoc](https://godoc.org/github.com/robinjoseph08/redisqueue?status.svg)](https://pkg.go.dev/github.com/robinjoseph08/redisqueue/v2?tab=doc)
-[![Build Status](https://travis-ci.org/robinjoseph08/redisqueue.svg?branch=master)](https://travis-ci.org/robinjoseph08/redisqueue)
-[![Coverage Status](https://coveralls.io/repos/github/robinjoseph08/redisqueue/badge.svg?branch=master)](https://coveralls.io/github/robinjoseph08/redisqueue?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/robinjoseph08/redisqueue)](https://goreportcard.com/report/github.com/robinjoseph08/redisqueue)
-![License](https://img.shields.io/github/license/robinjoseph08/redisqueue.svg)
+[![GoDoc](https://godoc.org/github.com/haijianyang/redisqueue?status.svg)](https://pkg.go.dev/github.com/haijianyang/redisqueue/v2?tab=doc)
+[![Build Status](https://travis-ci.org/haijianyang/redisqueue.svg?branch=master)](https://travis-ci.org/haijianyang/redisqueue)
+[![Coverage Status](https://coveralls.io/repos/github/haijianyang/redisqueue/badge.svg?branch=master)](https://coveralls.io/github/haijianyang/redisqueue?branch=master)
+[![Go Report Card](https://goreportcard.com/badge/github.com/haijianyang/redisqueue)](https://goreportcard.com/report/github.com/haijianyang/redisqueue)
+![License](https://img.shields.io/github/license/haijianyang/redisqueue.svg)
 
 `redisqueue` provides a producer and consumer of a queue that uses [Redis
 streams](https://redis.io/topics/streams-intro).
@@ -38,13 +38,13 @@ versioning. So please make sure to initialize a Go module before installing
 
 ```sh
 go mod init github.com/my/repo
-go get github.com/robinjoseph08/redisqueue/v2
+go get github.com/haijianyang/redisqueue/v2
 ```
 
 Import:
 
 ```go
-import "github.com/robinjoseph08/redisqueue/v2"
+import "github.com/haijianyang/redisqueue/v2"
 ```
 
 ## Example
@@ -57,11 +57,12 @@ package main
 import (
 	"fmt"
 
-	"github.com/robinjoseph08/redisqueue/v2"
+	"github.com/haijianyang/redisqueue/v2"
 )
 
 func main() {
-	p, err := redisqueue.NewProducerWithOptions(&redisqueue.ProducerOptions{
+	ctx := context.Background()
+	p, err := redisqueue.NewProducerWithOptions(ctx, &redisqueue.ProducerOptions{
 		StreamMaxLength:      10000,
 		ApproximateMaxLength: true,
 	})
@@ -70,7 +71,7 @@ func main() {
 	}
 
 	for i := 0; i < 1000; i++ {
-		err := p.Enqueue(&redisqueue.Message{
+		err := p.Enqueue(ctx, &redisqueue.Message{
 			Stream: "redisqueue:test",
 			Values: map[string]interface{}{
 				"index": i,
@@ -96,11 +97,12 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/robinjoseph08/redisqueue/v2"
+	"github.com/haijianyang/redisqueue/v2"
 )
 
 func main() {
-	c, err := redisqueue.NewConsumerWithOptions(&redisqueue.ConsumerOptions{
+	ctx := context.Background()
+	c, err := redisqueue.NewConsumerWithOptions(ctx, &redisqueue.ConsumerOptions{
 		VisibilityTimeout: 60 * time.Second,
 		BlockingTimeout:   5 * time.Second,
 		ReclaimInterval:   1 * time.Second,
@@ -121,7 +123,7 @@ func main() {
 	}()
 
 	fmt.Println("starting")
-	c.Run()
+	c.Run(ctx)
 	fmt.Println("stopped")
 }
 
